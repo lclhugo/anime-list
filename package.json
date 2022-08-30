@@ -1,10 +1,10 @@
 {
   "name": "anime-list",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch ./resources/sass/main.scss:./public/css/style.css"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,6 @@
   "bugs": {
     "url": "https://github.com/2a0b40/anime-list/issues"
   },
-  "homepage": "https://github.com/2a0b40/anime-list#readme"
+  "homepage": "https://github.com/2a0b40/anime-list#readme",
+  "description": ""
 }

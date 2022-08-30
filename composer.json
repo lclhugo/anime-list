@@ -1,0 +1,17 @@
+{
+    "name": "nxzea/anime-list",
+    "autoload": {
+        "psr-4": {
+            "Nxzea\\AnimeList\\": "src/",
+            "Router\\": "routes/",
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "2a0b40",
+            "email": "nxzeah@gmail.com"
+        }
+    ],
+    "require": {}
+}

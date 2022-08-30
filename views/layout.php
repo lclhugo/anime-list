@@ -7,9 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <link rel="shortcut icon" href="../assets/img/logos/minilogo.png" />
-    <link rel="stylesheet" href="../assets/css/reset.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../public/css/style.css">
 </head>
 
 <body>
@@ -28,16 +27,9 @@
         </nav>
     </header>
 
-        <?php require $view; ?>
+        <?= $content ?>
 
-    <footer>
-
-        <button id="darkBtn">dark theme</button>
-        <button id="lightBtn">light theme</button>
-
-    </footer>
-
-    <script type="text/javascript" src="../assets/scripts/randomjs.js"></script>
+    <script type="text/javascript" src="../assets/scripts/.."></script>
 </body>
 
 </html>
