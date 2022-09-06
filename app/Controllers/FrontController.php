@@ -8,4 +8,9 @@ class FrontController extends Controller{
     {
         return $this->view('public.home');
     }
+    
+    public function browse()
+    {
+        return $this->view('public.browse');
+    }
 }

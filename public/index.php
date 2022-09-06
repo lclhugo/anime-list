@@ -13,5 +13,7 @@ $router = new Router($_GET['url']);
 $router->get('/', 'App\Controllers\FrontController@home');
 $router->get('/home', 'App\Controllers\FrontController@home');
 
+$router->get('/admin/users', 'App\Controllers\AdminController@viewUsers');
+
 $router->run();
 
