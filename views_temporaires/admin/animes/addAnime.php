@@ -16,5 +16,7 @@
             <input type="date "id="finishDate" placeholder="Finish date">
             <input type="text" id="studio" placeholder="Studio">
             <input type="text" id="genres" placeholder="Genres">
+            <input type="submit" value="Add to d"/>
+
         </form>
     </section>

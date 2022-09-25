@@ -4,7 +4,8 @@
         "psr-4": {
             "Nxzea\\AnimeList\\": "src/",
             "Router\\": "routes/",
-            "App\\": "app/"
+            "App\\": "app/",
+            "Database\\": "database/"
         }
     },
     "authors": [

@@ -1,80 +1,35 @@
 <main>
     <section id="anime-list">
         <h1>Viewing User's list</h1>
-        <section id="watching" class="list-sections">
-            <table class="list-table" id="watching-table">
+        <section class="list-sections">
+            <table class="list-table">
                 <caption>Watching</caption>
                 <thead>
                     <tr>
                         <th>Cover</th>
                         <th>Title</th>
-                        <th>Progress</th>
-                        <th>Score</th>
+                        <th>Year</th>
                         <th>Type</th>
+                        <th>Rating</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <?php foreach ($animes->getAnimeList() as $anime): ?>
                     <tr>
-                        <td>a</td>
-                        <td>b</td>
-                        <td>c</td>
-                        <td>d</td>
-                        <td>e</td>
-                        <td><button type="edit-entry">Edit</button></td>
-
+                        <td><img src="<?= $anime->cover ?>" alt="Cover"></td>
+                        <td><?= $anime->goToAnime() ?></td>
+                        <td><?= $anime->year ?></td>
+                        <td><?= $anime->type ?></td>
+                        <td><?= $anime->rating ?></td>
+                        <td>
+                            <form action="/deleteAnime" method="post">
+                                <input type="hidden" name="anime_id" value="<?= $anime->id ?>">
+                                <input type="hidden" name="user_id" value="<?= $anime->user_id ?>">
+                                <button type="submit">Remove</button>
+                        </td>
                     </tr>
-                </tbody>
-        </section>
-
-        <section id="completed" class="list-sections">
-            <table class="list-table" id="completed-table">
-                <caption>Completed</caption>
-                <thead>
-                    <tr>
-                        <th>Cover</th>
-                        <th>Title</th>
-                        <th>Progress</th>
-                        <th>Score</th>
-                        <th>Type</th>
-                        <th>Actions</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>a</td>
-                        <td>b</td>
-                        <td>c</td>
-                        <td>d</td>
-                        <td>e</td>
-                        <td><button type="edit-entry">Edit</button></td>
-                    </tr>
-                </tbody>
-        </section>
-
-        <section id="planning" class="list-sections">
-            <table class="list-table" id="planning-table">
-                <caption>Planning</caption>
-                <tr>
-                    <th>Cover</th>
-                    <th>Title</th>
-                    <th>Progress</th>
-                    <th>Score</th>
-                    <th>Type</th>
-                    <th>Actions</th>
-
-                </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>a</td>
-                        <td>b</td>
-                        <td>c</td>
-                        <td>d</td>
-                        <td>e</td>
-                        <td><button type="edit-entry">Edit</button></td>
-                    </tr>
+                    <?php endforeach; ?>
                 </tbody>
         </section>
     </section>

@@ -1,0 +1,536 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+	--bg-color1: rgb(13, 27, 42);
+	--bg-color2: rgb(27, 38, 59);
+	--bg-color3: rgb(65, 90, 119);
+	--font-color: rgb(255, 255, 255);
+	--secondary-color: rgb(246, 128, 191);
+}
+
+/* .dark {
+	--bg-color1: rgb(11, 22, 34);
+	--bg-color2: rgb(21, 31, 46);
+	--font-color: rgb(255, 255, 255);
+	--secondary-color: rgb(246, 128, 191);
+} 
+
+.light {
+	--bg-color1: rgb(176, 176, 176);
+	--bg-color2: rgb(123, 123, 124);
+	--font-color: rgb(0, 0, 0);
+	--secondary-color: rgb(246, 128, 191);
+} */
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	--main-font: 'Roboto', sans-serif;
+	background-color: var(--bg-color1);
+	font-family: var(--main-font);
+	color: var(--font-color);
+}
+
+a {
+	color: var(--secondary-color);
+	text-decoration: none;
+}
+
+main {
+	padding-top: 5%;
+}
+
+.button {
+	box-shadow: inset 0px 1px 0px 0px var(--secondary-color);
+	background-color: var(--secondary-color);
+	border-color: var(--secondary-color);
+	border-radius: 6px;
+	display: inline-block;
+	cursor: pointer;
+	color: var(--font-color);
+	font-size: 1em;
+	padding: 9px 49px;
+	text-decoration: none;
+}
+
+.button:hover {
+	filter: brightness(110%);
+}
+
+.button:active {
+	position: relative;
+	top: 1px;
+}
+
+/* NAVBAR */
+
+#main-nav {
+	margin-bottom: 100px;
+	position: fixed;
+	width: 100%;
+}
+
+
+#nav-logo {
+	display: none;
+	width: 50px;
+	height: auto;
+}
+
+#main-nav,
+#main-nav ul,
+i {
+	background-color: var(--bg-color2);
+}
+
+#main-nav i {
+	position: absolute;
+	font-size: 50px;
+	z-index: 1;
+	right: 0.2em;
+	top: 0.2em;
+}
+
+#main-nav i:hover,
+#main-nav i:focus {
+	cursor: pointer;
+}
+
+#main-nav ul li a {
+	color: var(--font-color);
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 2em;
+	display: block;
+	margin-bottom: 0.3em;
+	position: relative;
+}
+
+#main-nav ul li a:hover {
+	filter: brightness(80%);
+}
+
+#main-nav ul li a::after {
+	content: '';
+	position: absolute;
+	top: 1em;
+	left: 10%;
+	width: 80%;
+	transform: scaleX(0);
+	height: 2px;
+	background-color: var(--font-color);
+	transform-origin: bottom right;
+	transition: transform 0.25s ease-in-out;
+}
+
+#main-nav ul li a:hover::after,
+#main-nav ul li a:focus::after {
+	transform: scaleX(1);
+	transform-origin: bottom left;
+}
+
+#main-nav ul {
+	list-style-type: none;
+	padding-bottom: 1em;
+	position: absolute;
+	top: -100vh;
+	padding-left: 0;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+@keyframes bouncing {
+	0% {
+		animation-timing-function: ease-in;
+		transform: translateY(-45px);
+	}
+
+	40% {
+		animation-timing-function: ease-in;
+		transform: translateY(-24px);
+	}
+
+	65% {
+		animation-timing-function: ease-in;
+		transform: translateY(-12px);
+	}
+
+	82% {
+		animation-timing-function: ease-in;
+		transform: translateY(-6px);
+	}
+
+	93% {
+		animation-timing-function: ease-in;
+		transform: translateY(-4px);
+	}
+
+	25%,
+	55%,
+	75%,
+	87% {
+		animation-timing-function: ease-out;
+		transform: translateY(0px);
+	}
+
+	100% {
+		animation-timing-function: ease-out;
+		transform: translateY(0px);
+	}
+}
+
+#main-nav ul.display {
+	left: 0;
+	top: 0;
+	padding-top: 1em;
+	gap: 1.2em;
+	transition: all .5s;
+	animation: bouncing 1s ease-in-out;
+}
+
+/* @media only screen and (min-width: 600px) {
+
+} */
+
+@media only screen and (min-width: 1200px) {
+
+	#main-nav {
+		display: flex;
+	}
+
+	#nav-logo:nth-child(1) {
+		margin-right: 80vh;
+	}
+
+	#nav-logo {
+		display: block;
+	}
+
+	#main-nav ul {
+		top: 0;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		gap: 2%;
+		width: 100%;
+		margin: 0;
+	}
+
+	#main-nav ul li a,
+	#main-nav ul a {
+		font-size: 1em;
+	}
+
+
+	#main-nav i {
+		display: none;
+	}
+
+	#main-nav ul.display,
+	#main-nav ul {
+		padding: 0;
+	}
+
+
+}
+
+
+
+/* Sign up / log in pages */
+
+.signup-login-form-main {
+	width: 50%;
+	margin: 50% 25%;
+	text-align: center;
+	border: 2px solid rgb(172, 213, 248);
+	padding: 5px;
+	box-shadow: 5px 5px 15px 5px rgb(172, 213, 248);
+}
+
+.signup-login-form {
+	display: flex;
+	flex-direction: column;
+}
+
+@media only screen and (min-width: 600px) {
+	.signup-login-form-main {
+		width: 20%;
+		margin: 15% 40%;
+	}
+}
+
+/* Anime page  */
+
+#anime-page-main {
+	padding-top: 20px;
+}
+
+#cover-add-to-list {
+	text-align: center;
+	padding-bottom: 15px;
+}
+
+#anime-page-main h1 {
+	font-size: 1.8em;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#anime-page-main img {
+	width: 200px;
+	height: auto;
+	padding-bottom: 10px;
+}
+
+#synopsis {
+	background-color: var(--bg-color2);
+	padding: 10px;
+	border-radius: 6px;
+	margin: 0 10% 10% 10%;
+}
+
+#synopsis h2 {
+	padding-bottom: 10px;
+	text-decoration: underline;
+}
+
+#anime-infos table {
+	width: 80%;
+	margin: 0 auto;
+	margin-top: 30px;
+	border-radius: 6px;
+	background-color: var(--bg-color2);
+	border-collapse: collapse;
+	border-radius: 6px;
+	overflow: hidden;
+}
+
+#anime-infos td {
+	width: 40%;
+	padding: 10px;
+	text-align: center;
+	border: 1px solid var(--bg-color2);
+
+}
+
+#anime-infos tr:nth-child(even) {
+	background-color: var(--bg-color1);
+}
+
+#anime-infos td:nth-child(even) {
+	border-left: 1px solid black;
+}
+
+@media only screen and (min-width: 600px) {
+	#synopsis {
+		width: 40%;
+		margin: 0;
+		overflow-y: scroll;
+	}
+
+	#anime-page-main {
+		padding: 0;
+	}
+
+	#anime-page-main-infos {
+		width: 70%;
+		display: flex;
+		justify-content: space-around;
+		margin: 30px 15% 30px 15%;
+	}
+
+	#anime-infos table {
+		width: 70%
+	}
+}
+
+
+/* user list page */
+
+/* user profile */
+
+#viewProfile {
+
+	margin: 0 auto;
+	width: 80%;
+	text-align: center;
+	background-color: var(--bg-color2);
+	padding: 10px;
+	margin-top: 30px;
+	border-radius: 6px;
+	border-collapse: collapse;
+	border-radius: 6px;
+}
+
+#viewProfile>* {
+	margin-top: 2em;
+}
+
+#viewProfile .pfp {
+	width: 230px;
+	height: 230px;
+}
+
+#viewProfile h1 {
+	font-size: 1.5em;
+}
+
+#viewProfile article {
+	width: 80%;
+	margin: 2em auto;
+	background-color: var(--bg-color3);
+	border-radius: 6px;
+	border-collapse: collapse;
+	border-radius: 6px;
+	padding: 1em;
+	text-align: left;
+}
+
+#viewProfile article h2 {
+	padding-bottom: 1em;
+	font-size: 1.2em;
+}
+
+@media only screen and (min-width: 600px) {
+	#viewProfile {
+		width: 60%;
+	}
+
+	#viewProfile article {
+		width: 80%;
+		margin: 2em auto;
+	}
+}
+
+.user-stats-item {
+	border-radius: 6px;
+	background-color: var(--bg-color3);
+	display: inline-block;
+	padding: 5px;
+	margin: 0 10px;
+}
+
+#viewProfile ul li a{
+	padding: 10px;
+	margin-top: 1em;
+}
+
+@media only screen and (min-width: 1200px) {
+	#viewProfile {
+		width: 35%;
+		margin: 3em auto;
+	}
+
+	#viewProfile article {
+		width: 70%;
+		margin: 2em auto;
+	}
+}
+
+/* user settings page */
+
+#user-settings {
+	width: 80%;
+	margin: 2em auto;
+	background-color: var(--bg-color2);
+	border-radius: 6px;
+	border-collapse: collapse;
+	border-radius: 6px;
+	padding: 1em;
+	text-align: center;
+}
+
+#user-settings p {
+	font-size: 0.8em;
+	font-style: italic;
+}
+
+#user-settings form {
+	margin-bottom: 2em;
+}
+
+#set-biography {
+	display: flex;
+	flex-direction: column;
+	width: 80%;
+	margin: 0 auto;
+}
+
+#set-biography-btn {
+	width: 50%;
+	align-self: center;
+}
+
+#bioTextarea {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	height: 100px;
+}
+
+@media only screen and (min-width: 600px) {
+	#user-settings {
+		width: 60%;
+	}
+
+	#set-biography-btn {
+		width: 40%;
+	}
+}
+
+@media only screen and (min-width: 1200px) {
+	#user-settings {
+		width: 30%;
+	}
+
+	#set-biography-btn {
+		width: 30%;
+	}
+}
+
+/* user's anime list */
+
+.list-sections {
+	width: 80%;
+	margin: 0 auto;
+	background-color: var(--bg-color2);
+	border-radius: 6px;
+	border-collapse: collapse;
+	border-radius: 6px;
+	padding: 1em;
+	text-align: center;
+}
+
+/* footer */
+
+footer {
+	height: 300px;
+}
+
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: var(--bg-color1) var(--bg-color2);
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: (var(--bg-color2));
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--bg-color2);
+    border-radius: 10px;
+  }
