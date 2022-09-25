@@ -9,9 +9,15 @@ class User extends Model {
 
     protected $table = 'users';
 
-    public function getByUsername(string $username): User
+
+    public function findByUsername(string $username): User
     {
         return $this->query("SELECT * FROM {$this->table} WHERE username = ?", [$username], true);
+    }
+
+    public function findByUserID(int $id): User
+    {
+        return $this->query("SELECT * FROM {$this->table} WHERE id = ?", [$id], true);
     }
 
     public function addUserToDB()

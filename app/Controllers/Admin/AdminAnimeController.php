@@ -6,7 +6,7 @@ use App\Models\User;
 use App\Models\Anime;
 use App\Controllers\Controller;
 
-class AnimeController extends Controller {
+class AdminAnimeController extends Controller {
 
     public function index()
     {

@@ -9,12 +9,12 @@ class UserList extends Model {
 
     protected $table = 'userlist';
 
-    public function getAnimeList(int $id): string
+    public function getAnimeList(int $id)
     {
-        return $this->query("
+        $this->query("
         SELECT * FROM animes
         INNER JOIN userlist ON animes.id = userlist.anime_id
-        WHERE userlist.user_id = 6
+        WHERE userlist.user_id = $id
         ORDER BY animes.title ");
     }
 
@@ -28,7 +28,7 @@ class UserList extends Model {
         $this->query("DELETE FROM userlist WHERE user_id = ? AND anime_id = ?", [$id, $_POST['anime_id']]);
     }
 
-    public function getAnimeListCount(int $id): string
+    public function getAnimeListCount(int $id)
     {
         return $this->query("SELECT COUNT(*) FROM userlist WHERE user_id = ?", [$id], true);
     }
@@ -38,5 +38,11 @@ class UserList extends Model {
         $this->query("UPDATE userlist SET rating = ? WHERE user_id = ? AND anime_id = ?", [$_POST['rating'], $id, $_POST['anime_id']]);
     }
 
+    public function findByUserID(int $id)
+    {
+        return $this->query("SELECT * FROM {$this->table} WHERE user_id = ?", [$id]);
+    }
+
+    
 
 }

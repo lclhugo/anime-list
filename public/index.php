@@ -15,14 +15,18 @@ define('DB_PWD', '');
 
 $router = new Router($_GET['url']);
 
-$router->get('/', 'App\Controllers\FrontController@home');
+$router->get('/', 'App\Controllers\Public\FrontController@home');
+$router->get('/home', 'App\Controllers\Public\FrontController@home');
 
-$router->get('/admin/animes', 'App\Controllers\Admin\AnimeController@index');
-$router->get('/admin/anime/add', 'App\Controllers\Admin\AnimeController@addAnime');
-$router->post('/admin/anime/add', 'App\Controllers\Admin\AnimeController@storeAnime');
-$router->get('/admin/anime/:id/edit', 'App\Controllers\Admin\AnimeController@editAnime');
-$router->post('/admin/anime/:id/edit', 'App\Controllers\Admin\AnimeController@updateAnime');
-$router->get('/admin/anime/:id/delete', 'App\Controllers\Admin\AnimeController@deleteAnime');
+$router->get('/admin/animes', 'App\Controllers\Admin\AdminAnimeController@index');
+$router->get('/admin/anime/add', 'App\Controllers\Admin\AdminAnimeController@addAnime');
+$router->post('/admin/anime/add', 'App\Controllers\Admin\AdminAnimeController@storeAnime');
+$router->get('/admin/anime/:id/edit', 'App\Controllers\Admin\AdminAnimeController@editAnime');
+$router->post('/admin/anime/:id/edit', 'App\Controllers\Admin\AdminAnimeController@updateAnime');
+$router->get('/admin/anime/:id/delete', 'App\Controllers\Admin\AdminAnimeController@deleteAnime');
+
+$router->get('/admin/users', 'App\Controllers\Admin\AdminUserController@index');
+$router->get('/dashboard', 'App\Controllers\Admin\AdminController@dashboard');
 
 $router->get('/login', 'App\Controllers\User\UserController@login');
 $router->post('/login', 'App\Controllers\User\UserController@loginPost');
@@ -30,13 +34,15 @@ $router->post('/login', 'App\Controllers\User\UserController@loginPost');
 $router->get('/register', 'App\Controllers\User\UserController@register');
 $router->post('/register', 'App\Controllers\User\UserController@registerPost');
 
+$router->get('/logout', 'App\Controllers\User\UserController@logout');
+
+$router->get('/profile', 'App\Controllers\User\UserController@profile');
+
+$router->get('/anime/:id', 'App\Controllers\Public\PublicAnimeController@showAnime');
 
 
-$router->get('/anime/add', 'App\Controllers\FrontController@addAnime');
-$router->get('/anime/:id', 'App\Controllers\FrontController@showAnime');
+$router->get('/animelist/:username', 'App\Controllers\List\UserListController@showUserList');
 
-
-$router->get('/animeList/:id', 'App\Controllers\FrontController@showAnimeList');
 
 try {
     $router->run();

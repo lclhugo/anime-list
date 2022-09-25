@@ -17,10 +17,21 @@
         <nav id="main-nav">
         <i class="bi bi-list"></i>
         <ul>
-            <li><a href="#">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><a href="#">Browse</a></li>
-            <li><a href="#">My List</a></li>
-            <li><a href="#">Profile</a></li>
+            <?php if (isset($_SESSION['auth'])): ?>
+                
+            <li><a href="">My List</a></li>
+            <li><a href="/logout">Logout</a></li>
+            <?php else: ?>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
+            <?php endif; ?>
+
+            <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] === 1): ?>
+            <li><a href="/admin/animes">Dashboard</a></li>
+            <?php endif; ?>
+
         </ul>
         </nav>
     </header>
