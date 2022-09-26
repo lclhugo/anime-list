@@ -14,18 +14,18 @@ class UserList extends Model {
         return $this->query("SELECT * FROM {$this->table} WHERE user_id = ?", [$id]);
     }
 
-    public function addAnimeToList(int $user_id, int $anime_id, int $rating = null)
+    public function addAnimeToList(int $user_id, int $anime_id)
     {
-        $this->query("INSERT INTO {$this->table} (user_id, anime_id, rating) VALUES (?, ?, ?)", [$user_id, $anime_id, $rating]);
+        return $this->query("INSERT INTO {$this->table} (user_id, anime_id, rating) VALUES (?, ?, ?)", [$user_id, $anime_id, 0]);
     }
     
     public function deleteAnimeFromList(int $user_id, int $anime_id)
     {
-        $this->query("DELETE FROM {$this->table} WHERE user_id = ? AND anime_id = ?", [$user_id, $anime_id]);
+        return $this->query("DELETE FROM {$this->table} WHERE user_id = ? AND anime_id = ?", [$user_id, $anime_id]);
     }
 
     public function updateRating(int $user_id, int $anime_id, int $rating)
     {
-        $this->query("UPDATE {$this->table} SET rating = ? WHERE user_id = ? AND anime_id = ?", [$rating, $user_id, $anime_id]);
+        return $this->query("UPDATE {$this->table} SET rating = ? WHERE user_id = ? AND anime_id = ?", [$rating, $user_id, $anime_id]);
     }
 }

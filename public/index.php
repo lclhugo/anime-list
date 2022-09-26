@@ -38,10 +38,7 @@ $router->get('/profile', 'App\Controllers\User\UserController@profile');
 
 $router->get('/anime/:id', 'App\Controllers\Public\PublicAnimeController@showAnime');
 
-$router->post('/anime/:id/add', 'App\Controllers\User\ListController@addToList');
-
-
-
+$router->get('/anime/:id/add', 'App\Controllers\User\ListController@addToList');
 
 $router->get('/list/:id', 'App\Controllers\User\ListController@showUserList');
 
