@@ -22,32 +22,38 @@ class Anime extends Model {
         return $date->format('d/m/Y : H:i:s');
     }
 
-    public function goToAnime(): string
+    public function generateAnimeCard()
     {
         return <<<HTML
-        <a href="/anime/$this->id">$this->title</a>
-        HTML;
-    }
-
-    public function goToAnimeEdit(): string
-    {
-        return <<<HTML
-        <a href="/anime/$this->id/edit">$this->title</a>
+        <section class="card">
+            <a href= "/anime/{$this->id}"><h3>{$this->title}</h3></a>
+            <a href="/anime/{$this->id}"<img src="{$this->cover}" alt="{$this->title}"></a>
+        </section>
         HTML;
     }
 
     public function addAnimeToDB()
     {
-        $this->query("INSERT INTO animes (title, cover, synopsis, type, ep_count, year, studio) VALUES (?, ?, ?, ?, ?, ?, ?)", [$this->title, $this->cover, $this->synopsis, $this->type, $this->ep_count, $this->year, $this->studio]);
+        $this->query("INSERT INTO {$this->table} (title, cover, synopsis, type, ep_count, year, studio) VALUES (?, ?, ?, ?, ?, ?, ?)", [$this->title, $this->cover, $this->synopsis, $this->type, $this->ep_count, $this->year, $this->studio]);
     }
 
     public function updateAnime()
     {
-        $this->query("UPDATE animes SET title = ?, cover = ?, synopsis = ?, type = ?, ep_count = ?, year = ?, studio = ? WHERE id = ?", [$this->title, $this->cover, $this->synopsis, $this->type, $this->ep_count, $this->year, $this->studio, $this->id]);
+        $this->query("UPDATE {$this->table} SET title = ?, cover = ?, synopsis = ?, type = ?, ep_count = ?, year = ?, studio = ? WHERE id = ?", [$this->title, $this->cover, $this->synopsis, $this->type, $this->ep_count, $this->year, $this->studio, $this->id]);
     }
 
     public function deleteAnime()
     {
-        $this->query("DELETE FROM animes WHERE id = ?", [$this->id]);
+        $this->query("DELETE FROM {$this->table} WHERE id = ?", [$this->id]);
+    }
+
+        public function getAnimesFromAnimeList(int $id): array
+    {
+        return $this->query("SELECT * FROM {$this->table} INNER JOIN userlist ON animes.id = userlist.anime_id WHERE userlist.user_id = ?", [$id]);
+    }
+
+    public function searchAnime(): array
+    {
+        return $this->query("SELECT * FROM {$this->table} WHERE title LIKE ?", ["%{$_POST['search']}%"]);
     }
 }

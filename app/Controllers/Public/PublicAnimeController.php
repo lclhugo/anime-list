@@ -17,4 +17,12 @@ class PublicAnimeController extends Controller {
 
         return $this->view('public.anime', compact('anime'));
     }
+
+    public function searchAnime()
+    {
+        $anime = new Anime($this->getDB());
+        $anime = $anime->searchAnime($_POST['search']);
+
+        return $this->view('public.animeSearch', compact('anime'));
+    }
 }

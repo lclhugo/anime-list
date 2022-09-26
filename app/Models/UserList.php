@@ -9,40 +9,23 @@ class UserList extends Model {
 
     protected $table = 'userlist';
 
-    public function getAnimeList(int $id)
-    {
-        $this->query("
-        SELECT * FROM animes
-        INNER JOIN userlist ON animes.id = userlist.anime_id
-        WHERE userlist.user_id = $id
-        ORDER BY animes.title ");
-    }
-
-    public function addAnimeToList(int $id): string
-    {
-        $this->query("INSERT INTO userlist (user_id, anime_id) VALUES (?, ?)", [$id, $_POST['anime_id']]);
-    }
-
-    public function deleteAnimeFromList(int $id): string
-    {
-        $this->query("DELETE FROM userlist WHERE user_id = ? AND anime_id = ?", [$id, $_POST['anime_id']]);
-    }
-
-    public function getAnimeListCount(int $id)
-    {
-        return $this->query("SELECT COUNT(*) FROM userlist WHERE user_id = ?", [$id], true);
-    }
-
-    public function setRatings(int $id): string
-    {
-        $this->query("UPDATE userlist SET rating = ? WHERE user_id = ? AND anime_id = ?", [$_POST['rating'], $id, $_POST['anime_id']]);
-    }
-
     public function findByUserID(int $id)
     {
         return $this->query("SELECT * FROM {$this->table} WHERE user_id = ?", [$id]);
     }
 
+    public function addAnimeToList(int $user_id, int $anime_id, int $rating = null)
+    {
+        $this->query("INSERT INTO {$this->table} (user_id, anime_id, rating) VALUES (?, ?, ?)", [$user_id, $anime_id, $rating]);
+    }
     
+    public function deleteAnimeFromList(int $user_id, int $anime_id)
+    {
+        $this->query("DELETE FROM {$this->table} WHERE user_id = ? AND anime_id = ?", [$user_id, $anime_id]);
+    }
 
+    public function updateRating(int $user_id, int $anime_id, int $rating)
+    {
+        $this->query("UPDATE {$this->table} SET rating = ? WHERE user_id = ? AND anime_id = ?", [$rating, $user_id, $anime_id]);
+    }
 }

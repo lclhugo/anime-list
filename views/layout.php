@@ -19,9 +19,10 @@
         <ul>
             <li><a href="/">Home</a></li>
             <li><a href="#">Browse</a></li>
+            <?php if (isset($_SESSION['user_id'])): ?>
+                <li><a href="/list/<?= $_SESSION['user_id'] ?>">My list</a></li>
+            <?php endif; ?>
             <?php if (isset($_SESSION['auth'])): ?>
-                
-            <li><a href="">My List</a></li>
             <li><a href="/logout">Logout</a></li>
             <?php else: ?>
             <li><a href="/login">Login</a></li>
@@ -29,14 +30,14 @@
             <?php endif; ?>
 
             <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] === 1): ?>
-            <li><a href="/admin/animes">Dashboard</a></li>
+            <li><a href="/admin/dashboard">Dashboard</a></li>
             <?php endif; ?>
-
         </ul>
         </nav>
     </header>
 
         <?= $content ?>
+
 
     <script type="text/javascript" src="../public/js/menu.js"></script>
 </body>

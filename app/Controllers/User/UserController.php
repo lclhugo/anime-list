@@ -3,9 +3,9 @@
 namespace App\Controllers\User;
 
 use App\Models\User;
-use App\Models\Anime;
 use App\Validation\Validator;
 use App\Controllers\Controller;
+
 
 class UserController extends Controller {
 
@@ -32,6 +32,8 @@ class UserController extends Controller {
 
         if (password_verify($_POST['password'], $user->password)) {
             $_SESSION['auth'] = (int) $user->admin;
+            $_SESSION['user_id'] = (int) $user->id;
+            $_SESSION['username'] = $user->username;
             return header('Location: /');
         } else {
             return header('Location: /login');
@@ -64,6 +66,7 @@ class UserController extends Controller {
         $user->email = $_POST['email'];
         $user->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         $user->admin = 0;
+        $user->avatar = 'https://i.imgur.com/l4r52Ro.png';
         $user->addUserToDB();
 
         return header('Location: /login');

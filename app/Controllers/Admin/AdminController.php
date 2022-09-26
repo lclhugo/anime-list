@@ -10,6 +10,8 @@ class AdminController extends Controller {
 
     public function dashboard()
     {
+        $this->isAdmin();
+        
         return $this->view('admin.dashboard');
     }
 }

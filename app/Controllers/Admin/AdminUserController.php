@@ -10,6 +10,8 @@ class AdminUserController extends Controller {
 
     public function index()
     {
+        $this->isAdmin();
+        
         $users = (new User($this->getDB()))->all();
 
         return $this->view('admin.users.index', compact('users'));

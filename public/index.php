@@ -26,22 +26,24 @@ $router->post('/admin/anime/:id/edit', 'App\Controllers\Admin\AdminAnimeControll
 $router->get('/admin/anime/:id/delete', 'App\Controllers\Admin\AdminAnimeController@deleteAnime');
 
 $router->get('/admin/users', 'App\Controllers\Admin\AdminUserController@index');
-$router->get('/dashboard', 'App\Controllers\Admin\AdminController@dashboard');
+$router->get('/admin/dashboard', 'App\Controllers\Admin\AdminController@dashboard');
 
 $router->get('/login', 'App\Controllers\User\UserController@login');
 $router->post('/login', 'App\Controllers\User\UserController@loginPost');
-
 $router->get('/register', 'App\Controllers\User\UserController@register');
 $router->post('/register', 'App\Controllers\User\UserController@registerPost');
-
 $router->get('/logout', 'App\Controllers\User\UserController@logout');
 
 $router->get('/profile', 'App\Controllers\User\UserController@profile');
 
 $router->get('/anime/:id', 'App\Controllers\Public\PublicAnimeController@showAnime');
 
+$router->post('/anime/:id/add', 'App\Controllers\User\ListController@addToList');
 
-$router->get('/animelist/:username', 'App\Controllers\List\UserListController@showUserList');
+
+
+
+$router->get('/list/:id', 'App\Controllers\User\ListController@showUserList');
 
 
 try {

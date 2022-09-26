@@ -10,6 +10,8 @@ class AdminAnimeController extends Controller {
 
     public function index()
     {
+        $this->isAdmin();
+
         $animes = (new Anime($this->getDB()))->all();
 
         return $this->view('admin.animes.index', compact('animes'));
@@ -17,11 +19,15 @@ class AdminAnimeController extends Controller {
 
     public function addAnime()
     {
+        $this->isAdmin();
+
         return $this->view('admin.animes.addAnime');
     }
 
     public function storeAnime()
     {
+        $this->isAdmin();
+
         $anime = new Anime($this->getDB());
         $anime->title = $_POST['title'];
         $anime->cover = $_POST['cover'];
@@ -36,6 +42,8 @@ class AdminAnimeController extends Controller {
 
     public function editAnime($id)
     {
+        $this->isAdmin();
+
         $anime = (new Anime($this->getDB()))->findByID($id);
 
         return $this->view('admin.animes.editAnime', compact('anime'));
@@ -43,6 +51,8 @@ class AdminAnimeController extends Controller {
 
     public function updateAnime($id)
     {
+        $this->isAdmin();
+
         $anime = (new Anime($this->getDB()))->findByID($id);
         $anime->title = $_POST['title'];
         $anime->cover = $_POST['cover'];
@@ -58,6 +68,8 @@ class AdminAnimeController extends Controller {
 
     public function deleteAnime($id)
     {
+        $this->isAdmin();
+        
         $anime = (new Anime($this->getDB()))->findByID($id);
         $anime->deleteAnime();
 

@@ -12,6 +12,9 @@ class FrontController extends Controller{
     
     public function home()
     {
+        $anime = new Anime($this->getDB());
+        $anime = $anime->all();
+
         return $this->view('public.home');
     }
 

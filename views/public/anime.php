@@ -7,7 +7,9 @@
                 </figure>
                 <div class=anime-list-add-edit>
                     <button class="button">Add to my list</button>
-                    <a href="/admin/anime/<?= $params['anime']->id ?>/edit">Edit</a>
+                    <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] === 1): ?>
+                        <a href="/admin/anime/<?= $params['anime']->id ?>/edit" class="button">Edit</a>
+                    <?php endif; ?>
                 </div>
             </section>
 
@@ -39,9 +41,5 @@
 
                     </tbody>
             </table>
-
-
-
-
         </section>
 </main>
