@@ -1,14 +1,82 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@use '../base/variables';
 
-$bg-color1: rgb(13, 27, 42);
-$bg-color2: rgb(27, 38, 59);
-$bg-color3: rgb(65, 90, 119);
-$font-color: rgb(255, 255, 255);
-$secondary-color: rgb(246, 128, 191);
+body {
+    color: variables.$body-text-color;
+    background: variables.$main-bg-color;
+    font-family: variables.$font-family-base;
+}
 
+hr {
+    border-top: 1px solid black;
+    border-bottom: 0px;
+}
 
-*{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+.center {
+    text-align: center;
+}
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-justify-content {
+    justify-content: center;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.d-block {
+    display: block;
+}
+
+.d-inline {
+    display: inline-block;
+}
+
+.box-shadow{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 4px, rgba(0, 0, 0, 0.23) 0px 3px 4px;
+}
+
+.width30{
+    width: 30%;
+}
+
+.width50{
+    width: 50%;
+}
+
+.width100{
+    width: 100%;
+}
+
+.width80{
+    width: 80%;
+}
+
+.m-20{
+    margin: 20px;
+}
+
+.hidden{
+    display: none;
+}
+
+main {
+    margin: 0 auto;
+    width: 80%;
+    padding-top: 2em;
 }

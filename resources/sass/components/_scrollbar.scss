@@ -1,0 +1,19 @@
+@use '../base/variables';
+
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: variables.$main-bg-color variables.$secondary-bg-color;
+  }
+
+  *::-webkit-scrollbar {
+    width: 1rem;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: variables.$main-bg-color;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: variables.$secondary-bg-color;
+    border-radius: 1rem;
+  }

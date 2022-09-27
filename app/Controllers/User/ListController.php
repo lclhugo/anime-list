@@ -25,10 +25,20 @@ class ListController extends Controller {
 
     public function addToList(int $id)
     {
-        // $this->isLogged();
+        $this->isLogged();
 
         $userlist = new UserList($this->getDB());
         $userlist->addAnimeToList($_SESSION['user_id'], $id);
+
+        return header('Location: /list/' . $_SESSION['user_id']);
+    }
+
+    public function deleteFromList(int $id)
+    {
+        $this->isLogged();
+
+        $userlist = new UserList($this->getDB());
+        $userlist->deleteAnimeFromList($_SESSION['user_id'], $id);
 
         return header('Location: /list/' . $_SESSION['user_id']);
     }

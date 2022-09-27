@@ -6,7 +6,7 @@
                     <img src="<?= $params['anime']->cover ?>" alt="anime cover">
                 </figure>
                 <div class=anime-list-add-edit>
-                    <button class="button">Add to my list</button>
+                    <button class="button open-modal-button">Add to my list</button>
                     <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] === 1): ?>
                         <a href="/admin/anime/<?= $params['anime']->id ?>/edit" class="button">Edit</a>
                     <?php endif; ?>
@@ -42,4 +42,6 @@
                     </tbody>
             </table>
         </section>
+
+        <?php include_once(VIEWS . 'users' . DIRECTORY_SEPARATOR . 'list' . DIRECTORY_SEPARATOR . 'modal.php'); ?>
 </main>

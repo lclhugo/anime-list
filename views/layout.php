@@ -9,7 +9,6 @@
     <link rel="shortcut icon" href="../assets/img/logos/minilogo.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../public/css/style.css">
-    <link rel="stylesheet" href="../public/css/temp.css">
 </head>
 
 <body>
@@ -18,7 +17,7 @@
         <i class="bi bi-list"></i>
         <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="#">Browse</a></li>
+            <li><a href="/animes">Browse</a></li>
             <?php if (isset($_SESSION['user_id'])): ?>
                 <li><a href="/list/<?= $_SESSION['user_id'] ?>">My list</a></li>
             <?php endif; ?>

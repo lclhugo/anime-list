@@ -39,6 +39,7 @@ $router->get('/profile', 'App\Controllers\User\UserController@profile');
 $router->get('/anime/:id', 'App\Controllers\Public\PublicAnimeController@showAnime');
 
 $router->get('/anime/:id/add', 'App\Controllers\User\ListController@addToList');
+$router->get('/anime/:id/delete', 'App\Controllers\User\ListController@deleteFromList');
 
 $router->get('/list/:id', 'App\Controllers\User\ListController@showUserList');
 

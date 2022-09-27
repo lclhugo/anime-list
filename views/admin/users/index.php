@@ -14,7 +14,7 @@
             <?php foreach ($params['users'] as $user) : ?>
                 <tr>
                     <td><?= $user->id ?></td>
-                    <td><a href="../animelist/<?= $user->username ?>"><?= $user->username ?></a></td>
+                    <td><a href="../list/<?= $user->id ?>"><?= $user->username ?></a></td>
                     <td><?= $user->email ?></td>
                     <td><?= $user->created_at ?></td>
                 </tr>
