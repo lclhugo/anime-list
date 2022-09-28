@@ -6,17 +6,17 @@ use Database\DBConnection;
 
 class Route {
 
-    public $path;
-    public $action;
-    public $matches;
+    public string $path;
+    public string $action;
+    public array $matches;
 
-    public function __construct($path, $action)
+    public function __construct(string $path, string $action)
     {
-        $this->path = trim($path, '/');
+        $this->path = '/'.trim($path, '/');
         $this->action = $action;
     }
 
-    public function matches(string $url)
+    public function matches(string $url): bool
     {
         $path = preg_replace('#:([\w]+)#', '([^/]+)', $this->path);
         $pathToMatch = "#^$path$#";
@@ -24,9 +24,9 @@ class Route {
         if (preg_match($pathToMatch, $url, $matches)) {
             $this->matches = $matches;
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     public function execute()

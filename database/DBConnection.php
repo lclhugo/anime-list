@@ -6,11 +6,11 @@ use PDO;
 
 class DBConnection {
 
-    private $dbname;
-    private $host;
-    private $username;
-    private $password;
-    private $pdo;
+    private string $dbname;
+    private string $host;
+    private string $username;
+    private string $password;
+    private PDO $pdo;
 
     public function __construct(string $dbname, string $host, string $username, string $password)
     {

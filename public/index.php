@@ -3,17 +3,16 @@
 use Router\Router;
 use App\Exceptions\NotFoundException;
 
-
 require '../vendor/autoload.php';
 
 define('VIEWS', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR);
 define('SCRIPTS', dirname($_SERVER['SCRIPT_NAME']) . DIRECTORY_SEPARATOR);
 define('DB_NAME', 'anime-list');
 define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PWD', '');
+define('DB_USER', 'phpmyadmin');
+define('DB_PWD', 'phpmyadmin');
 
-$router = new Router($_GET['url']);
+$router = new Router($_SERVER['PATH_INFO'] ?? '/');
 
 $router->get('/', 'App\Controllers\Public\FrontController@home');
 $router->get('/home', 'App\Controllers\Public\FrontController@home');
@@ -43,9 +42,13 @@ $router->get('/anime/:id/delete', 'App\Controllers\User\ListController@deleteFro
 
 $router->get('/list/:id', 'App\Controllers\User\ListController@showUserList');
 
-
 try {
     $router->run();
 } catch (NotFoundException $e) {
-    return $e->error404();
+    header("HTTP/1.1 404 Not Found");
+    echo $e->error404();
+} catch (Exception $e) {
+    header("HTTP/1.1 500 Internal Error");
+
+    echo $e;
 }

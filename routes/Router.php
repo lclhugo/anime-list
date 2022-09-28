@@ -2,33 +2,36 @@
 
 namespace Router;
 
-use Router\Route;
 use App\Exceptions\NotFoundException;
 
-class Router {
+class Router
+{
+    public string $path;
+    public array $routes = [];
 
-    public $url;
-    public $routes = [];
-
-    public function __construct($url)
+    public function __construct(string $path)
     {
-        $this->url = trim($url, '/');
+        $this->path = '/'.trim($path, '/');
     }
 
-    public function get(string $path, string $action)
+    public function get(string $path, string $action): void
     {
         $this->routes['GET'][] = new Route($path, $action);
     }
 
-    public function post(string $path, string $action)
+    public function post(string $path, string $action): void
     {
         $this->routes['POST'][] = new Route($path, $action);
     }
 
+    /**
+     * @throws NotFoundException
+     */
     public function run()
     {
+        /** @var Route $route */
         foreach ($this->routes[$_SERVER['REQUEST_METHOD']] as $route) {
-            if ($route->matches($this->url)) {
+            if ($route->matches($this->path)) {
                 return $route->execute();
             }
         }
