@@ -9,8 +9,8 @@ define('VIEWS', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEP
 define('SCRIPTS', dirname($_SERVER['SCRIPT_NAME']) . DIRECTORY_SEPARATOR);
 define('DB_NAME', 'anime-list');
 define('DB_HOST', 'localhost');
-define('DB_USER', 'phpmyadmin');
-define('DB_PWD', 'phpmyadmin');
+define('DB_USER', 'root');
+define('DB_PWD', '');
 
 $router = new Router($_SERVER['PATH_INFO'] ?? '/');
 
