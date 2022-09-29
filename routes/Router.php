@@ -12,7 +12,7 @@ class Router {
 
     public function __construct($url)
     {
-        $this->url = trim($url, '/');
+        $this->url = trim((string) $url, '/');
     }
 
     public function get(string $path, string $action)

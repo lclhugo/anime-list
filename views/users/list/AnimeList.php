@@ -1,15 +1,16 @@
-<main>
+<main id="anime-list">
     <section id="anime-list-page">
-        <h1>Viewing <a href="/list/<?= $params['user']->id ?>"><?= $params['user']->username ?></a>'s list</h1>
-        <img src="<?= $params['user']->avatar ?>" alt="avatar" class="avatar">
-        
+        <div class="profile container">
+            <h1>Viewing <a href="/list/<?= $params['user']->id ?>"><?= $params['user']->username ?></a>'s list</h1>
+            <img src="<?= $params['user']->avatar ?>" alt="avatar" class="avatar">
+        </div>
     
-        <section  id="anime-list">
+        <section  id="anime-list" class="container">
             <table class>
                 <?php if ($params['userlist'] == null): ?>
                     <p>This user has no anime in their list.</p>
                 <?php else: ?>
-                <caption>Watchlist</caption>
+                <caption>Watched Animes</caption>
                 <thead>
                     <tr>
                         <th>Cover</th>

@@ -1,0 +1,27 @@
+Options +FollowSymLinks
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^home ./index.php?url=home
+
+RewriteRule ^login ./index.php?url=login
+RewriteRule ^register ./index.php?url=register
+RewriteRule ^logout ./index.php?url=logout
+
+RewriteRule ^admin/animes ./index.php?url=admin/animes
+RewriteRule ^admin/anime/add ./index.php?url=admin/anime/add
+RewriteRule ^admin/anime/([0-9]+)/edit$ ./index.php?url=admin/anime/$1/edit
+RewriteRule ^admin/anime/([0-9]+)/delete$ ./index.php?url=admin/anime/$1/delete
+
+RewriteRule ^admin/users ./index.php?url=admin/users
+RewriteRule ^admin/dashboard ./index.php?url=admin/dashboard
+
+RewriteRule ^anime/([0-9]+)$ ./index.php?url=anime/$1
+RewriteRule ^anime/([0-9]+)/add$ ./index.php?url=anime/$1/add
+RewriteRule ^anime/([0-9]+)/delete$ ./index.php?url=anime/$1/delete
+
+RewriteRule ^list/([0-9]+)$ ./index.php?url=list/$1
+
+RewriteRule ^404 ./index.php?url=404

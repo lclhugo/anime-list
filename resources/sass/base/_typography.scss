@@ -28,6 +28,11 @@ h4 {
 
 a {
     color: variables.$link-color;
+    font-size: 1.6rem;
+}
+
+a:hover {
+    opacity: 0.8;
 }
 
 p {
@@ -44,6 +49,3 @@ th, td, span, li {
     font-size: 1.6rem;
 }
 
-i {
-    color: #000;
-}

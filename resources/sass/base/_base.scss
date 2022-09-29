@@ -11,72 +11,32 @@ hr {
     border-bottom: 0px;
 }
 
-.center {
-    text-align: center;
-}
-
-.left {
-    text-align: left;
-}
-
-.right {
-    text-align: right;
-}
-
-.d-flex {
-    display: flex;
-}
-
-.flex-column {
-    flex-direction: column;
-}
-
-.flex-justify-content {
-    justify-content: center;
-}
-
-.flex-wrap {
-    flex-wrap: wrap;
-}
-
-.d-block {
-    display: block;
-}
-
-.d-inline {
-    display: inline-block;
-}
-
-.box-shadow{
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 4px, rgba(0, 0, 0, 0.23) 0px 3px 4px;
-}
-
-.width30{
-    width: 30%;
-}
-
-.width50{
-    width: 50%;
-}
-
-.width100{
-    width: 100%;
-}
-
-.width80{
-    width: 80%;
-}
-
-.m-20{
-    margin: 20px;
-}
-
-.hidden{
-    display: none;
-}
-
 main {
     margin: 0 auto;
-    width: 80%;
-    padding-top: 2em;
+    width: 100%;
+    padding-top: 5rem;
 }
+
+.container {
+    margin: 0 auto;
+    width: 90%;
+    padding: 1rem 1rem;
+    background-color: variables.$secondary-bg-color;
+    border-radius: 0.6rem;
+}
+
+@media only screen and (min-width: 600px) {
+    .container {
+        width: 80%;
+    }
+} 
+
+@media only screen and (min-width: 1200px) {
+    .container {
+        width: 60%;
+    }
+
+    main {
+        padding-top: 8rem;
+    }   
+}   

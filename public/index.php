@@ -12,11 +12,21 @@ define('DB_NAME', 'anime-list');
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PWD', '');
+define('PATH', 'anime-list.test');
 
-$router = new Router($_GET['url']);
+// $router = array_key_exists('url', $_GET) ? new Router($_GET['url']) : new Router('home');
+
+$router = new Router($_GET['url'] ?? 'home');
+
 
 $router->get('/', 'App\Controllers\Public\FrontController@home');
 $router->get('/home', 'App\Controllers\Public\FrontController@home');
+
+$router->get('/login', 'App\Controllers\User\UserController@login');
+$router->post('/login', 'App\Controllers\User\UserController@loginPost');
+$router->get('/register', 'App\Controllers\User\UserController@register');
+$router->post('/register', 'App\Controllers\User\UserController@registerPost');
+$router->get('/logout', 'App\Controllers\User\UserController@logout');
 
 $router->get('/admin/animes', 'App\Controllers\Admin\AdminAnimeController@index');
 $router->get('/admin/anime/add', 'App\Controllers\Admin\AdminAnimeController@addAnime');
@@ -28,20 +38,14 @@ $router->get('/admin/anime/:id/delete', 'App\Controllers\Admin\AdminAnimeControl
 $router->get('/admin/users', 'App\Controllers\Admin\AdminUserController@index');
 $router->get('/admin/dashboard', 'App\Controllers\Admin\AdminController@dashboard');
 
-$router->get('/login', 'App\Controllers\User\UserController@login');
-$router->post('/login', 'App\Controllers\User\UserController@loginPost');
-$router->get('/register', 'App\Controllers\User\UserController@register');
-$router->post('/register', 'App\Controllers\User\UserController@registerPost');
-$router->get('/logout', 'App\Controllers\User\UserController@logout');
-
-$router->get('/profile', 'App\Controllers\User\UserController@profile');
-
 $router->get('/anime/:id', 'App\Controllers\Public\PublicAnimeController@showAnime');
 
 $router->get('/anime/:id/add', 'App\Controllers\User\ListController@addToList');
 $router->get('/anime/:id/delete', 'App\Controllers\User\ListController@deleteFromList');
 
 $router->get('/list/:id', 'App\Controllers\User\ListController@showUserList');
+
+
 
 
 try {

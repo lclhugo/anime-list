@@ -1,12 +1,11 @@
 <main>
 
-<?php if (isset($_SESSION['username'])): ?>
-    <h1> Hello, <?= $_SESSION['username'] ?> </h1>
-<?php endif; ?>
 
-    <section id="home-page">
-        <h1>Home</h1>
-        <section id="home-page-content">
+
+    <section class="home-page container border-radius">
+        <?php if (isset($_SESSION['username'])): ?>
+        <h1> Hello, <?= $_SESSION['username'] ?> </h1>
+        <?php endif; ?>
             <p>Welcome to Anime List, a website where you can keep track of all the anime you've watched</p>
             <?php if (isset($_SESSION['username'])): ?>
                 <p>Click <a href="/list/<?= $_SESSION['user_id'] ?>">here</a> to view your list</p>
@@ -16,5 +15,4 @@
 
             <p>Click <a href="/anime">here</a> to view all the animes currently in the database!</p>
         </section>
-    </section>
 </main>

@@ -8,13 +8,13 @@
     <title></title>
     <link rel="shortcut icon" href="../assets/img/logos/minilogo.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
     <header id="navbar">
         <nav id="main-nav">
-        <i class="bi bi-list"></i>
+        <i class="bi bi-list white-shadow"></i>
         <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/animes">Browse</a></li>
@@ -38,7 +38,7 @@
         <?= $content ?>
 
 
-    <script type="text/javascript" src="../public/js/menu.js"></script>
+    <script type="text/javascript" src="../js/menu.js"></script>
 </body>
 
 </html>

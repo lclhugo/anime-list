@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function(){
         menu.classList.toggle('display');
         menuBtn.classList.toggle('bi-list');
 		menuBtn.classList.toggle('bi-x');
+        menuBtn.classList.toggle('white-shadow');
     });
 
     const modalBtn = document.querySelector('.open-modal-button');

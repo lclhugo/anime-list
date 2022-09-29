@@ -1,4 +1,4 @@
-<main id="anime-page-main">
+<main class="container">
         <section id="anime-page-main-infos">
             <section id="cover-add-to-list">
                 <h1><?= $params['anime']->title ?></h1>
