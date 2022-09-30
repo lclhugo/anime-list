@@ -12,9 +12,10 @@ class NotFoundException extends Exception {
         parent::__construct($message, $code, $previous);
     }
 
-    public function error404()
+    public function error404(): string
     {
-        http_response_code(404);
+        ob_start();
         require VIEWS . 'errors/404.php';
+        return ob_get_clean();
     }
 }

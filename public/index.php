@@ -51,5 +51,10 @@ $router->get('/list/:id', 'App\Controllers\User\ListController@showUserList');
 try {
     $router->run();
 } catch (NotFoundException $e) {
-    return $e->error404();
+    header("HTTP/1.1 404 Not Found");
+    echo $e->error404();
+} catch (Exception $e) {
+    header("HTTP/1.1 500 Internal Error");
+
+    echo $e;
 }
