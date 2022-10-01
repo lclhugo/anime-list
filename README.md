@@ -1,2 +1,2 @@
 # anime-list
-https://api.codiga.io/project/34724/score/svg
+[![Code Grade]([https://api.codiga.io/project/34724/status/svg)](https://api.codiga.io/project/34724/status/svg)
