@@ -8,6 +8,7 @@ use App\Controllers\Controller;
 
 class AdminUserController extends Controller {
 
+    // Show all the users in the database in a table for the administrator
     public function index()
     {
         $this->isAdmin();

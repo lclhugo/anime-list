@@ -9,6 +9,7 @@ use App\Controllers\Controller;
 
 class ListController extends Controller {
 
+    // Show the user's list
     public function showUserList(int $id)
     {
         $user = new User($this->getDB());
@@ -23,6 +24,7 @@ class ListController extends Controller {
         return $this->view('users.list.AnimeList', compact('user', 'userlist', 'anime'));
     }
 
+    // Add an anime to the user's list
     public function addToList(int $id)
     {
         $this->isLogged();
@@ -33,6 +35,7 @@ class ListController extends Controller {
         return header('Location: /list/' . $_SESSION['user_id']);
     }
 
+    // Remove an anime from the user's list
     public function deleteFromList(int $id)
     {
         $this->isLogged();

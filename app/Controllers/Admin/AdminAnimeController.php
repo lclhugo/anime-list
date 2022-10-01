@@ -9,6 +9,7 @@ use App\Validation\Validator;
 
 class AdminAnimeController extends Controller {
 
+    // Show all the animes in the database in a table for the administrator
     public function index()
     {
         $this->isAdmin();
@@ -18,6 +19,7 @@ class AdminAnimeController extends Controller {
         return $this->view('admin.animes.index', compact('animes'));
     }
 
+    // Add anime to the database
     public function addAnime()
     {
         $this->isAdmin();
@@ -25,12 +27,13 @@ class AdminAnimeController extends Controller {
         return $this->view('admin.animes.addAnime');
     }
 
+    // Store the anime in the database
     public function storeAnime()
     {
-        //check if the user is admin
+        // check if the user is admin
         $this->isAdmin();
 
-        //validate the data
+        // validate the data
         $validator = new Validator($_POST);
         $errors = $validator->validate([
             'title' => ['required'],
@@ -83,6 +86,7 @@ class AdminAnimeController extends Controller {
         return header('Location: /admin/animes');
     }
 
+    // Show the edit form for the anime
     public function editAnime($id)
     {
         $this->isAdmin();
@@ -92,6 +96,7 @@ class AdminAnimeController extends Controller {
         return $this->view('admin.animes.editAnime', compact('anime'));
     }
 
+    // Update the anime in the database
     public function updateAnime($id)
     {
 
@@ -144,6 +149,7 @@ class AdminAnimeController extends Controller {
         return header('Location: /admin/animes');
     }
 
+    // Delete the selected anime from the database
     public function deleteAnime($id)
     {
         $this->isAdmin();

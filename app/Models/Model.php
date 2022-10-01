@@ -16,16 +16,19 @@ abstract class Model {
         $this->db = $db;
     }
 
+    // query for getting all the data from a table
     public function all(): array
     {
         return $this->query("SELECT * FROM {$this->table} ORDER BY created_at DESC");
     }
 
+    // query for getting a specific data from a table using its id
     public function findById(int $id): Model
     {
         return $this->query("SELECT * FROM {$this->table} WHERE id = ?", [$id], true);
     }
 
+    // function to execute the queries and return the results
     public function query(string $sql, array $param = null, bool $single = null)
     {
         $method = is_null($param) ? 'query' : 'prepare';

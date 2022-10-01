@@ -8,6 +8,7 @@ use App\Controllers\Controller;
 
 class AdminController extends Controller {
 
+    // return the admin dashboard
     public function dashboard()
     {
         $this->isAdmin();

@@ -10,6 +10,7 @@ use App\Controllers\Controller;
 
 class PublicAnimeController extends Controller {
 
+    // show the selected anime page with all the information
      public function showAnime(int $id)
     {
         $anime = new Anime($this->getDB());
@@ -18,6 +19,8 @@ class PublicAnimeController extends Controller {
         return $this->view('public.animes.anime', compact('anime'));
     }
 
+
+    // show all the animes in the database 
     public function showAllAnimes()
     {
         $anime = new Anime($this->getDB());

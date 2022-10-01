@@ -12,6 +12,7 @@ class Validator {
         $this->data = $data;
     }
 
+    // Validate the data
     public function validate(array $rules): ?array
     {
         foreach ($rules as $name => $rulesArray) {
@@ -34,6 +35,7 @@ class Validator {
         return $this->getErrors();
     }
 
+    // Check if the field is empty and return an error if it is
     private function required(string $name, string $value)
     {
         $value = trim($value);
@@ -43,6 +45,7 @@ class Validator {
         }
     }
 
+    // Check if the field is less than the minimum length and return an error if it is
     private function min(string $name, string $value, string $rule)
     {
         preg_match_all('/(\d+)/', $rule, $matches);
@@ -53,6 +56,7 @@ class Validator {
         }
     }
 
+    // Get the errors
     private function getErrors(): ?array
     {
         return $this->errors;

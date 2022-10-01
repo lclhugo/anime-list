@@ -9,6 +9,7 @@ use App\Controllers\Controller;
 
 class UserController extends Controller {
 
+    // Show the login form if the user is not logged in
     public function login()
     {
         if (isset($_SESSION['user_id'])) {
@@ -18,6 +19,7 @@ class UserController extends Controller {
         }
     }
 
+    // Log the user in
     public function loginPost()
     {
         $validator = new Validator($_POST);
@@ -50,6 +52,7 @@ class UserController extends Controller {
         }
     }
 
+    // Show the register form if the user is not logged in
     public function register()
     {
         if (isset($_SESSION['auth'])) {
@@ -59,6 +62,7 @@ class UserController extends Controller {
         }
     }
 
+    // Register the user in the database
     public function registerPost()
     {
         $validator = new Validator($_POST);
@@ -139,6 +143,7 @@ class UserController extends Controller {
         return header('Location: /login');
     }
 
+    // Log the user out
     public function logout()
     {
         session_destroy();
