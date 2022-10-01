@@ -43,6 +43,8 @@ $router->get('/anime/:id', 'App\Controllers\Public\PublicAnimeController@showAni
 $router->get('/anime/:id/add', 'App\Controllers\User\ListController@addToList');
 $router->get('/anime/:id/delete', 'App\Controllers\User\ListController@deleteFromList');
 
+$router->get('/animes', 'App\Controllers\Public\PublicAnimeController@showAllAnimes');
+
 $router->get('/list/:id', 'App\Controllers\User\ListController@showUserList');
 
 
@@ -51,10 +53,5 @@ $router->get('/list/:id', 'App\Controllers\User\ListController@showUserList');
 try {
     $router->run();
 } catch (NotFoundException $e) {
-    header("HTTP/1.1 404 Not Found");
-    echo $e->error404();
-} catch (Exception $e) {
-    header("HTTP/1.1 500 Internal Error");
-
-    echo $e;
+    return $e->error404();
 }

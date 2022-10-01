@@ -20,9 +20,9 @@ class PublicAnimeController extends Controller {
 
     public function showAllAnimes()
     {
-        $animes = new Anime($this->getDB());
-        $animes = $animes->findAll();
+        $anime = new Anime($this->getDB());
+        $anime = $anime->all();
 
-        return $this->view('public.animes.animes', compact('animes'));
+        return $this->view('public.animes.animes', compact('anime'));
     }
 }

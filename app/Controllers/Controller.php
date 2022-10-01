@@ -49,5 +49,12 @@ abstract class Controller {
         }
     }
 
-
+    protected function isGuest()
+    {
+        if (!isset($_SESSION['auth'])) {
+            return true;
+        } else {
+            return header('Location: /');
+        }
+    }
 }

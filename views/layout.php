@@ -12,30 +12,30 @@
 </head>
 
 <body>
+
     <header id="navbar">
         <nav id="main-nav">
-        <i class="bi bi-list white-shadow"></i>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/animes">Browse</a></li>
-            <?php if (isset($_SESSION['user_id'])): ?>
+            <i class="bi bi-list white-shadow"></i>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/animes">Browse</a></li>
+                <?php if (isset($_SESSION['user_id'])): ?>
                 <li><a href="/list/<?= $_SESSION['user_id'] ?>">My list</a></li>
-            <?php endif; ?>
-            <?php if (isset($_SESSION['auth'])): ?>
-            <li><a href="/logout">Logout</a></li>
-            <?php else: ?>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/register">Register</a></li>
-            <?php endif; ?>
-
-            <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] === 1): ?>
-            <li><a href="/admin/dashboard">Dashboard</a></li>
-            <?php endif; ?>
-        </ul>
+                <?php endif; ?>
+                <?php if (isset($_SESSION['auth'])): ?>
+                <li><a href="/logout">Logout</a></li>
+                <?php else: ?>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
+                <?php endif; ?>
+                <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] === 1): ?>
+                <li><a href="/admin/dashboard">Dashboard</a></li>
+                <?php endif; ?>
+            </ul>
         </nav>
     </header>
 
-        <?= $content ?>
+    <?= $content ?>
 
 
     <script type="text/javascript" src="../js/menu.js"></script>

@@ -22,6 +22,9 @@ RewriteRule ^anime/([0-9]+)$ ./index.php?url=anime/$1
 RewriteRule ^anime/([0-9]+)/add$ ./index.php?url=anime/$1/add
 RewriteRule ^anime/([0-9]+)/delete$ ./index.php?url=anime/$1/delete
 
+RewriteRule ^animes ./index.php?url=animes
+
+
 RewriteRule ^list/([0-9]+)$ ./index.php?url=list/$1
 
 RewriteRule ^404 ./index.php?url=404

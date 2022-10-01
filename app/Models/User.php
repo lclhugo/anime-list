@@ -22,11 +22,16 @@ class User extends Model {
 
     public function addUserToDB()
     {
-        $this->query("INSERT INTO {$this->table} (username, email, password, admin, avatar) VALUES (?, ?, ?, ?, ?)", [$this->username = $_POST['username'], $this->email = $_POST['email'], $this->password = password_hash($_POST['password'], PASSWORD_DEFAULT), $this->admin = 0 , $this->avatar = 'https://i.imgur.com/l4r52Ro.png']);
+        $this->query("INSERT INTO {$this->table} (username, email, password, admin) VALUES (?, ?, ?, ?)", [$this->username = $_POST['username'], $this->email = $_POST['email'], $this->password = password_hash($_POST['password'], PASSWORD_DEFAULT), $this->admin = 0]);
     }
 
     public function findIDbyUsername(string $username)
     {
         return $this->query("SELECT id FROM {$this->table} WHERE username = ?", [$username], true);
+    }
+
+    public function getByEmail(string $email)
+    {
+        return $this->query("SELECT * FROM {$this->table} WHERE email = ?", [$email], true);
     }
 }

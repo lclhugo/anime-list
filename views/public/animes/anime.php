@@ -1,21 +1,22 @@
 <main class="container">
         <section id="anime-page-main-infos">
             <section id="cover-add-to-list">
-                <h1><?= $params['anime']->title ?></h1>
+                <h1><?= htmlspecialchars($params['anime']->title) ?></h1>
                 <figure>
                     <img src="<?= $params['anime']->cover ?>" alt="anime cover">
                 </figure>
                 <div class=anime-list-add-edit>
-                    <button class="button open-modal-button">Add to my list</button>
-                    <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] === 1): ?>
+                        <a href="/anime/<?= $params['anime']->id ?>/add" class="button">Add to list</a>
+
+                        <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] === 1): ?>
                         <a href="/admin/anime/<?= $params['anime']->id ?>/edit" class="button">Edit</a>
-                    <?php endif; ?>
+                        <?php endif; ?>
                 </div>
             </section>
 
             <article id="synopsis">
                 <h2>Synopsis:</h2>
-                <p><?= $params['anime']->synopsis ?></p>
+                <p><?= htmlspecialchars($params['anime']->synopsis) ?></p>
             </article>
         </section>
 
@@ -28,7 +29,7 @@
                     </tr>
                     <tr>
                         <td>Number of episodes</td>
-                        <td><?= $params['anime']->ep_count ?></td>
+                        <td><?= $params['anime']->episodes ?></td>
                     </tr>
                     <tr>
                         <td>Year</td>
@@ -42,6 +43,4 @@
                     </tbody>
             </table>
         </section>
-
-        <?php include_once(VIEWS . 'users' . DIRECTORY_SEPARATOR . 'list' . DIRECTORY_SEPARATOR . 'modal.php'); ?>
 </main>

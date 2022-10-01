@@ -24,6 +24,10 @@ main {
   border-radius: 0.6rem;
 }
 
+.alert-danger {
+  color: rgb(238, 116, 116);
+}
+
 @media only screen and (min-width: 600px) {
   .container {
     width: 80%;
@@ -130,14 +134,29 @@ form {
   align-items: center;
   justify-content: center;
 }
-
 form input {
   width: 80%;
-  height: 5rem;
   border: 1px solid rgb(27, 38, 59);
   border-radius: 0.5rem;
   padding: 0 1rem;
   margin-bottom: 1rem;
+  height: 5rem;
+}
+form textarea {
+  width: 80%;
+  border: 1px solid rgb(27, 38, 59);
+  border-radius: 0.5rem;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+  height: 25rem;
+}
+form select {
+  width: 80%;
+  border: 1px solid rgb(27, 38, 59);
+  border-radius: 0.5rem;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+  height: 5rem;
 }
 
 @keyframes bouncing {
@@ -320,11 +339,6 @@ i {
 
 #anime-list #anime-list-page {
   align-content: center;
-}
-#anime-list .avatar {
-  width: 300px;
-  height: 300px;
-  border-radius: 6%;
 }
 #anime-list center {
   margin: 0 auto;

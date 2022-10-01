@@ -1,8 +1,7 @@
 <main id="anime-list">
     <section id="anime-list-page">
         <div class="profile container">
-            <h1>Viewing <a href="/list/<?= $params['user']->id ?>"><?= $params['user']->username ?></a>'s list</h1>
-            <img src="<?= $params['user']->avatar ?>" alt="avatar" class="avatar">
+            <h1>Viewing <a href="/list/<?= $params['user']->id ?>"><?= htmlspecialchars($params['user']->username) ?></a>'s list</h1>
         </div>
     
         <section  id="anime-list" class="container">
@@ -28,11 +27,11 @@
                     <?php foreach ($params['anime'] as $anime): ?>
                     <?php if ($anime->id === $list->anime_id): ?>
                     <tr>
-                        <td><img class="list-cover" src="<?= $anime->cover ?>" alt="<?= $anime->title ?>"></td>
-                        <td><a href="/anime/<?= $anime->id ?>"><?= $anime->title ?></a></td>
-                        <td><?= $anime->ep_count ?></td>
-                        <td><?= $anime->year ?></td>
-                        <td><?= $anime->type ?></td>
+                        <td><img class="list-cover" src="<?= htmlspecialchars($anime->cover) ?>" alt="<?= $anime->title ?>"></td>
+                        <td><a href="/anime/<?= $anime->id ?>"><?= htmlspecialchars($anime->title) ?></a></td>
+                        <td><?= htmlspecialchars($anime->episodes) ?></td>
+                        <td><?= htmlspecialchars($anime->year) ?></td>
+                        <td><?= htmlspecialchars($anime->type) ?></td>
                         <td>
                             <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] === $params['user']->id): ?>
                             <a href="/anime/<?= $anime->id ?>/delete" class="button">Remove from List</a>

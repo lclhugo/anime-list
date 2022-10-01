@@ -1,0 +1,9 @@
+@use '../base/variables';
+
+@mixin form {
+    width: 80%;
+    border: 1px solid variables.$secondary-bg-color;
+    border-radius: 0.5rem;
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+}

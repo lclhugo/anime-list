@@ -22,7 +22,7 @@
                     <td><?= $anime->id ?></td>
                     <td><a href="/anime/<?= $anime->id ?>"><?= $anime->title ?></a></td>
                     <td><?= $anime->type ?></td>
-                    <td><?= $anime->ep_count ?></td>
+                    <td><?= $anime->episodes ?></td>
                     <td><?= $anime->year ?></td>
                     <td><?= $anime->studio ?></td>
                     <td><?= $anime->created_at ?></td>

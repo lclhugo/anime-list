@@ -25,6 +25,10 @@ main {
     border-radius: 0.6rem;
 }
 
+.alert-danger {
+    color: rgb(238, 116, 116);
+}
+
 @media only screen and (min-width: 600px) {
     .container {
         width: 80%;

@@ -11,18 +11,23 @@ class UserController extends Controller {
 
     public function login()
     {
-        return $this->view('users.auth.login');
+        if (isset($_SESSION['user_id'])) {
+            return header('Location: /');
+        } else  {
+            return $this->view('users.auth.login');
+        }
     }
 
     public function loginPost()
     {
         $validator = new Validator($_POST);
         $errors = $validator->validate([
-            'username' => ['required', 'min:3'],
+            'username' => ['required'],
             'password' => ['required']
         ]);
 
         if ($errors) {
+            $_SESSION['errors'] = [];
             $_SESSION['errors'][] = $errors;
             header('Location: /login');
             exit;
@@ -34,41 +39,103 @@ class UserController extends Controller {
             $_SESSION['auth'] = (int) $user->admin;
             $_SESSION['user_id'] = (int) $user->id;
             $_SESSION['username'] = $user->username;
+            $_SESSION['errors'] = [];
+
+            //redirect to the home page
             return header('Location: /');
         } else {
+            $_SESSION['errors'] = [];
+            $_SESSION['errors'][] = ['username' => ['Username or password is incorrect']];
             return header('Location: /login');
         }
     }
 
     public function register()
     {
-        return $this->view('users.auth.register');
+        if (isset($_SESSION['auth'])) {
+            return header('Location: /');
+        } else {
+            return $this->view('users.auth.register');
+        }
     }
 
     public function registerPost()
     {
         $validator = new Validator($_POST);
         $errors = $validator->validate([
-            'username' => ['required', 'min:3'],
-            'email' => ['required', 'email'],
-            'password' => ['required', 'min:6'],
-            'password_confirm' => ['required', 'min:6', 'same:password']
+            'username' => ['required'],
+            'email' => ['required', 'mail'],
+            'password' => ['required'],
+            'password_confirm' => ['required']
         ]);
 
         if ($errors) {
+            $_SESSION['errors'] = [];
             $_SESSION['errors'][] = $errors;
             header('Location: /register');
             exit;
         }
 
+        // Check if username is already taken
+        $user = (new User($this->getDB()))->getByUsername($_POST['username']);
+        if ($user) {
+            $_SESSION['errors'] = [];
+            $_SESSION['errors'][] = ['username' => ['this username is already taken']];
+            header('Location: /register');
+            exit;
+        }
+
+        // Check if the username is only letters and numbers
+        if (!ctype_alnum($_POST['username'])) {
+            $_SESSION['errors'] = [];
+            $_SESSION['errors'][] = ['username' => ['the username can only contain letters and numbers']];
+            header('Location: /register');
+            exit;
+        }
+
+        // Check if email is already taken
+        $user = (new User($this->getDB()))->getByEmail($_POST['email']);
+        if ($user) {
+            $_SESSION['errors'] = [];
+            $_SESSION['errors'][] = ['email' => ['this email address is already taken']];
+            header('Location: /register');
+            exit;
+        }
+
+        //check if password is strong enough
+        $password = $_POST['password'];
+        $uppercase = preg_match('@[A-Z]@', $password);
+        $lowercase = preg_match('@[a-z]@', $password);
+        $number    = preg_match('@[0-9]@', $password);
+        $specialChars = preg_match('@[^\w]@', $password);
+
+        if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password) < 8) {
+            $_SESSION['errors'] = [];
+            $_SESSION['errors'][] = ['password' => ['Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.']];
+            header('Location: /register');
+            exit;
+        }
+
+        // check if password and password_confirm match
+        if ($_POST['password'] !== $_POST['password_confirm']) {
+            $_SESSION['errors'] = [];
+            $_SESSION['errors'][] = ['password_confirm' => ['passwords do not match']];
+            header('Location: /register');
+            exit;
+        }
+
+        //store and sanitize the data
         $user = new User($this->getDB());
-        $user->username = $_POST['username'];
-        $user->email = $_POST['email'];
+        $user->username = strip_tags($_POST['username']);
+        $user->email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
         $user->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         $user->admin = 0;
-        $user->avatar = 'https://i.imgur.com/l4r52Ro.png';
         $user->addUserToDB();
 
+        //empty the session errors
+        $_SESSION['errors'] = [];
+
+        //redirect to login
         return header('Location: /login');
     }
 
