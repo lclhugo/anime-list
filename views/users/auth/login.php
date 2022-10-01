@@ -4,7 +4,7 @@
         <h1>Login</h1>
         <input type='text' name='username' placeholder='Username'>
         <input type='password' name='password' placeholder='Password'>
-            <?php if (isset($_SESSION['loginErrors'])): ?>
+            <?php if (isset($_SESSION['errors'])): ?>
                 <div class="alert-danger">
                     <ul>
                 <?php foreach($_SESSION['errors'] as $errorsArray): ?>

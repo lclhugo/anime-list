@@ -1,0 +1,22 @@
+@use'../base/variables';
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid variables.$main-bg-color;
+    margin-bottom: 2rem;
+    font-size: 1.4rem;
+    background-color: variables.$main-bg-color;
+
+    th {
+        padding: 1rem;
+        text-align: left;
+        border-bottom: 1px solid variables.$tertiary-bg-color;
+    }
+
+    td {
+        padding: 1rem;
+        border-bottom: 1px solid variables.$tertiary-bg-color;
+    }
+}

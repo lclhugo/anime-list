@@ -1,22 +1,27 @@
 @use '../base/variables';
 
 .button {
-	box-shadow: inset 0px 1px 0px 0px variables.$secondary-bg-color;
-	background-color: variables.$link-color;
-	border-radius: 6px;
-	display: inline-block;
-	cursor: pointer;
-	color: variables.$body-text-color;
-	font-size: 1.6rem;
-	padding: 9px 49px;
+	background-image: linear-gradient(to right, #EECDA3 0%, variables.$link-color  51%, #EECDA3  100%);
+	padding: 1rem 1rem;
+	margin: 1rem;
+	text-align: center;
+	text-transform: uppercase;
+	transition: 0.5s;
+	background-size: 200% auto;
+	color: white;            
+	box-shadow: 0 0 1rem #eee;
+	border-radius: 1rem;
+	display: block;
+	width : 20rem;
+	
+	&:hover {
+	background-position: right center;
+	color: #fff;
 	text-decoration: none;
-}
-
-.button:hover {
-	filter: brightness(110%);
-}
-
-.button:active {
+	}
+        
+	&:active {
 	position: relative;
 	top: 1px;
+	}
 }

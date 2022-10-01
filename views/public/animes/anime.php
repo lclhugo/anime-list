@@ -1,5 +1,5 @@
-<main class="container">
-        <section id="anime-page-main-infos">
+<main>
+    <section class="container">
             <section id="cover-add-to-list">
                 <h1><?= htmlspecialchars($params['anime']->title) ?></h1>
                 <figure>
@@ -18,29 +18,26 @@
                 <h2>Synopsis:</h2>
                 <p><?= htmlspecialchars($params['anime']->synopsis) ?></p>
             </article>
-        </section>
 
         <section id="anime-infos">
             <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Episodes</th>
+                        <th>Year</th>
+                        <th>Studio</th>
+                    </tr>
+                </thead>
                 <tbody>
                     <tr>
-                        <td>Type</td>
-                        <td><?= $params['anime']->type ?></td>
+                        <td><?= htmlspecialchars($params['anime']->type) ?></td>
+                        <td><?= htmlspecialchars($params['anime']->episodes) ?></td>
+                        <td><?= htmlspecialchars($params['anime']->year) ?></td>
+                        <td><?= htmlspecialchars($params['anime']->studio) ?></td>
                     </tr>
-                    <tr>
-                        <td>Number of episodes</td>
-                        <td><?= $params['anime']->episodes ?></td>
-                    </tr>
-                    <tr>
-                        <td>Year</td>
-                        <td><?= $params['anime']->year ?></td>
-                    </tr>
-                    <tr>
-                        <td>Studio</td>
-                        <td><?= $params['anime']->studio ?></td>
-                    </tr>
-
-                    </tbody>
+                </tbody>
             </table>
         </section>
+    </section>
 </main>
