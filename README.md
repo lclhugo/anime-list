@@ -1,2 +1,2 @@
 # anime-list
-[![Code Grade](<BADGE-LINK>)](<DASHBOARD-LINK>)
+https://api.codiga.io/project/34724/score/svg
