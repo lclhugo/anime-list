@@ -4,7 +4,8 @@
             <h1>Edit an anime</h1>
             <input type='text' name='title' placeholder='Title' value='<?= $params['anime']->title ?>'>
             <input type='text' name='cover' placeholder='Cover URL' value='<?= $params['anime']->cover ?>'>
-            <textarea name='synopsis' placeholder='Synopsis'><?= $params['anime']->synopsis ?></textarea>
+            <textarea name='synopsis' class='synopsis' placeholder='Synopsis' maxlength='1000'><?= $params['anime']->synopsis ?></textarea>
+                <span id="count">0/1000</span>
             <select name='type' placeholder='<?php echo $params['anime']->type ?>'>
                     <option value="TV">TV</option>
                     <option value="Movie">Movie</option>

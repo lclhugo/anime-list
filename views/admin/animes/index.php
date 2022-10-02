@@ -2,9 +2,7 @@
     <section class='container'>
         <section class='index anime-index'> 
         <h1>Admin anime index </h1>
-
         <a href="/admin/anime/add" class='button'>Add a new anime</a>
-
             <table>
                 <thead>
                     <tr>
@@ -34,6 +32,7 @@
                             </td>
                         </tr>
                     <?php endforeach; ?>
+                </tbody>
             </table>
             <a href="/admin/dashboard" class='button'>Back to dashboard</a>
             </section>

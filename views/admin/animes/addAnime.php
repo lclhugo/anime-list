@@ -4,7 +4,8 @@
             <h1>Add an anime to the database</h1>
             <input type='text' name='title' placeholder='Title'>
             <input type='text' name='cover' placeholder='Cover URL'>
-            <textarea name='synopsis' placeholder='Synopsis'></textarea>    
+            <textarea name='synopsis' class='synopsis' placeholder='Synopsis' maxlength='1000'></textarea>   
+                    <span id="count">0/1000</span>
             <select name='type' placeholder='Type'>
                 <option value="TV">TV</option>
                 <option value="Movie">Movie</option>

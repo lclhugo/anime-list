@@ -8,6 +8,13 @@ document.addEventListener('DOMContentLoaded', function(){
 		menuBtn.classList.toggle('bi-x');
         menuBtn.classList.toggle('white-shadow');
     });
+
+    const textarea = document.querySelector('.synopsis')
+    const count = document.getElementById('count');
+    textarea.onkeyup = (charactersLeft) => {
+    count.innerHTML = (charactersLeft.target.value.length) + '/1000';
+    };
+
 });
 
 // Language: javascript
