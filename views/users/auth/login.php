@@ -1,4 +1,4 @@
-<main>
+<main class='pad-top'>
     <section class="container login">
     <form method='POST' action='/login'>
         <h1>Login</h1>

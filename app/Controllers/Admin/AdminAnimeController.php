@@ -59,6 +59,14 @@ class AdminAnimeController extends Controller {
             $_SESSION['errors'][] = ['title' => ['This anime already exists']];
             return header('Location: /admin/anime/add');
         }
+
+
+        //check if the cover is a valid url in jpg jpeg or png format
+        if (!preg_match('/^https?:\/\/.*\.(?:jpg|jpeg|png)$/', $_POST['cover'])) {
+            $_SESSION['errors'] = [];
+            $_SESSION['errors'][] = ['cover' => ['The cover must be a valid url in jpg, jpeg or png format']];
+            return header('Location: /admin/anime/add');
+        }
         
         //Check if the year is valid
         if ($_POST['year'] < 1900 || $_POST['year'] > 2050) {
@@ -83,6 +91,8 @@ class AdminAnimeController extends Controller {
         $anime->year = $_POST['year'];
         $anime->studio = $_POST['studio'];
         $anime->addAnimeToDB();
+        //empty the errors array
+        $_SESSION['errors'] = [];
         return header('Location: /admin/animes');
     }
 

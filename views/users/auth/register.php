@@ -1,5 +1,5 @@
-<main>
-    <section class="register container">
+<main class="pad-top">
+    <section class=" container">
         <form method='POST' action='/register'>
             <h1>Register</h1>
             <input type='text' name='username' placeholder='Username'>

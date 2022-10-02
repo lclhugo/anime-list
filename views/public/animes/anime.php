@@ -1,25 +1,28 @@
 <main>
     <section class="container">
-            <section id="cover-add-to-list">
+        <section class="anime-infos">
+
                 <h1><?= htmlspecialchars($params['anime']->title) ?></h1>
                 <figure>
                     <img src="<?= $params['anime']->cover ?>" alt="anime cover">
                 </figure>
                 <div class=anime-list-add-edit>
+                    <!--  the button to add an anime to the user's list shows up only if the user is logged in -->
+                    <?php if (isset($_SESSION['user_id'])): ?>
                         <a href="/anime/<?= $params['anime']->id ?>/add" class="button">Add to list</a>
-
-                        <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] === 1): ?>
+                    <?php endif; ?>
+                    <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] === 1): ?>
                         <a href="/admin/anime/<?= $params['anime']->id ?>/edit" class="button">Edit</a>
-                        <?php endif; ?>
+                    <?php endif; ?>
                 </div>
-            </section>
+
 
             <article id="synopsis">
                 <h2>Synopsis:</h2>
                 <p><?= htmlspecialchars($params['anime']->synopsis) ?></p>
             </article>
 
-        <section id="anime-infos">
+
             <table>
                 <thead>
                     <tr>
@@ -39,5 +42,6 @@
                 </tbody>
             </table>
         </section>
-    </section>
+        </section>
 </main>
+

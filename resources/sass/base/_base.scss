@@ -22,11 +22,15 @@ main {
     width: 90%;
     padding: 1rem 1rem;
     background-color: variables.$secondary-bg-color;
-    border-radius: 0.6rem;
+    border-radius: 2rem;
+    margin-bottom: 3rem;
 }
 
 .alert-danger {
     color: rgb(238, 116, 116);
+}
+.pad-top{
+    padding-top: 30vh;
 }
 
 @media only screen and (min-width: 600px) {
@@ -37,7 +41,7 @@ main {
 
 @media only screen and (min-width: 1200px) {
     .container {
-        width: 60%;
+        width: 50%;
     }
 
     main {

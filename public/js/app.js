@@ -8,19 +8,6 @@ document.addEventListener('DOMContentLoaded', function(){
 		menuBtn.classList.toggle('bi-x');
         menuBtn.classList.toggle('white-shadow');
     });
-
-    const modalBtn = document.querySelector('.open-modal-button');
-    const modal = document.querySelector('.modal');
-    const closeBtn = document.querySelector('.close');
-
-    modalBtn.addEventListener('click', function(){
-        modal.classList.toggle('hidden');
-    });
-
-    closeBtn.addEventListener('click', function(){
-        modal.classList.toggle('hidden');
-    }
-    );
 });
 
 // Language: javascript

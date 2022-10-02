@@ -26,5 +26,4 @@ class UserList extends Model {
     {
         return $this->query("DELETE FROM {$this->table} WHERE user_id = ? AND anime_id = ?", [$user_id, $anime_id]);
     }
-
 }

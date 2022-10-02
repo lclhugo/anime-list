@@ -1,0 +1,8 @@
+@use '../base/variables';
+
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}

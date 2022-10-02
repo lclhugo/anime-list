@@ -21,11 +21,16 @@ main {
   width: 90%;
   padding: 1rem 1rem;
   background-color: rgb(27, 38, 59);
-  border-radius: 0.6rem;
+  border-radius: 2rem;
+  margin-bottom: 3rem;
 }
 
 .alert-danger {
   color: rgb(238, 116, 116);
+}
+
+.pad-top {
+  padding-top: 30vh;
 }
 
 @media only screen and (min-width: 600px) {
@@ -35,7 +40,7 @@ main {
 }
 @media only screen and (min-width: 1200px) {
   .container {
-    width: 60%;
+    width: 50%;
   }
   main {
     padding-top: 8rem;
@@ -359,24 +364,174 @@ table th {
 }
 table td {
   padding: 1rem;
-  border-bottom: 1px solid rgb(65, 90, 119);
+  border: 1px solid rgb(65, 90, 119);
 }
 
-#anime-list #anime-list-page {
-  align-content: center;
+.anime-infos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  gap: 2rem;
 }
-#anime-list center {
+.anime-infos img {
+  width: 30rem;
+  height: auto;
+  border-radius: 2rem;
+}
+.anime-infos article {
+  background-color: rgb(65, 90, 119);
+  padding: 2rem;
+  border-radius: 2rem;
+  width: 90%;
+}
+.anime-infos table {
+  text-align: center;
+}
+.anime-infos table th {
+  border: 1px solid rgb(65, 90, 119);
+  text-align: center;
+}
+
+@media only screen and (min-width: 600px) {
+  .anime-infos article,
+table {
+    width: 75%;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .anime-infos table {
+    width: 50%;
+  }
+}
+#anime-list-page {
+  margin: 2rem auto;
+  width: 95%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+#anime-list-page #username {
+  font-size: 3.2rem;
+}
+#anime-list-page table {
+  margin: 0 auto;
+}
+#anime-list-page .list-cover {
+  width: 10rem;
+  height: 14rem;
+}
+#anime-list-page .list-cover:hover {
+  transform: scale(1.5);
+}
+
+.anime-page {
+  margin: 0 auto;
+  width: 95%;
+}
+
+.anime-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   margin: 0 auto;
   width: 100%;
 }
-#anime-list .list-cover {
-  width: 215px;
-  height: 300px;
+
+.anime-card {
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  border-radius: 10px;
+  text-align: center;
+  margin: 0.8rem;
 }
-#anime-list caption {
-  font-size: 2rem;
+.anime-card:hover {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  color: rgb(246, 128, 191);
+}
+.anime-card a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  display: block;
+  max-width: 150px;
+}
+.anime-card img {
+  height: 210px;
+  width: 150px;
+  border-radius: 1rem;
 }
 
+#h-anime {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+#home-page {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  text-align: center;
+  padding: 5rem 0;
+  align-items: center;
+}
+#home-page h2 {
+  max-width: 70%;
+}
+#home-page h2 {
+  max-width: 80%;
+}
+#home-page a {
+  font-size: 2.4rem;
+}
+
+.index {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+.index table {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.anime-index th:nth-child(1),
+.anime-index td:nth-child(1),
+.anime-index th:nth-child(3),
+.anime-index td:nth-child(3),
+.anime-index th:nth-child(4),
+.anime-index td:nth-child(4) {
+  display: none;
+}
+
+@media screen and (min-width: 600px) {
+  .anime-index th:nth-child(4),
+.anime-index td:nth-child(4) {
+    display: table-cell;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .anime-index th:nth-child(1),
+.anime-index td:nth-child(1),
+.anime-index th:nth-child(3),
+.anime-index td:nth-child(3) {
+    display: table-cell;
+  }
+}
 .login a {
   display: block;
   text-align: right;
