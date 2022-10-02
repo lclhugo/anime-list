@@ -33,6 +33,6 @@ class Router {
             }
         }
 
-        throw new NotFoundException("La page demandée est introuvable.");
+        throw new NotFoundException("Page not found");
     }
 }

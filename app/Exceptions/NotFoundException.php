@@ -15,8 +15,6 @@ class NotFoundException extends Exception {
     // return the error page
     public function error404(): string
     {
-        ob_start();
-        require VIEWS . 'errors/404.php';
-        return ob_get_clean();
+        return $this->view('errors.404');
     }
 }

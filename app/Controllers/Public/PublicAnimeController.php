@@ -16,6 +16,10 @@ class PublicAnimeController extends Controller {
         $anime = new Anime($this->getDB());
         $anime = $anime->findByID($id);
 
+        //if the anime id doesn't exist, return the animes page
+        if (!$anime) {
+            return header('Location: /animes');
+        }
 
         return $this->view('public.animes.anime', compact('anime'));
     }

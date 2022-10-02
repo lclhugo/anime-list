@@ -27,4 +27,4 @@ RewriteRule ^animes ./index.php?url=animes
 
 RewriteRule ^list/([0-9]+)$ ./index.php?url=list/$1
 
-RewriteRule ^404 ./index.php?url=404
+RewriteRule ^error404 ./index.php?url=404

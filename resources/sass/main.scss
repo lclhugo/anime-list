@@ -3,19 +3,16 @@
 @use 'base/reset';
 @use 'base/variables';
 
-@use 'components/animecard';
 @use 'components/button';
 @use 'components/form';
 @use 'components/nav';
 @use 'components/scrollbar';
 @use 'components/table';
 
-@use'pages/AddAnime';
 @use'pages/anime';
 @use'pages/animeList';
 @use'pages/animes';
 @use'pages/dashboard';
-@use'pages/editAnime';
 @use'pages/home';
 @use'pages/indexes';
 @use'pages/login';

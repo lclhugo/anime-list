@@ -3,18 +3,18 @@
 use Router\Router;
 use App\Exceptions\NotFoundException;
 
-
+// Autoload classes
 require '../vendor/autoload.php';
 
+
 define('VIEWS', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR);
-define('SCRIPTS', dirname($_SERVER['SCRIPT_NAME']) . DIRECTORY_SEPARATOR);
+
+// define the variables for the database connection
 define('DB_NAME', 'anime-list');
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PWD', '');
 define('PATH', 'anime-list.test');
-
-// $router = array_key_exists('url', $_GET) ? new Router($_GET['url']) : new Router('home');
 
 $router = new Router($_GET['url'] ?? 'home');
 
@@ -39,19 +39,14 @@ $router->get('/admin/users', 'App\Controllers\Admin\AdminUserController@index');
 $router->get('/admin/dashboard', 'App\Controllers\Admin\AdminController@dashboard');
 
 $router->get('/anime/:id', 'App\Controllers\Public\PublicAnimeController@showAnime');
-
 $router->get('/anime/:id/add', 'App\Controllers\User\ListController@addToList');
 $router->get('/anime/:id/delete', 'App\Controllers\User\ListController@deleteFromList');
 
 $router->get('/animes', 'App\Controllers\Public\PublicAnimeController@showAllAnimes');
-
 $router->get('/list/:id', 'App\Controllers\User\ListController@showUserList');
-
-
-
 
 try {
     $router->run();
 } catch (NotFoundException $e) {
-    return $e->error404();
+    echo $e->getMessage();
 }
