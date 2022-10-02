@@ -31,6 +31,8 @@ then change the database connection in the public/index.php file
 
 I used Laragon for my local server
 
+when I run it using the php -S command the routing system doesn't seem to be working, there's probably some ajustments to do to get it to work this way (in the .htaccess I believe) 
+
 ## Sources
 
 - [Laragon](https://laragon.org/)
