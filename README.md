@@ -24,7 +24,7 @@ for educational purpose only
 git clone https://github.com/2a0b40/anime-list.git
 ```
 
-get the database.sql file and import it to your database
+get the anime-list.sql file and import it to your database
 then change the database connection in the public/index.php file
 
 ## Usage
