@@ -19,13 +19,13 @@
                 <tbody>
                     <?php foreach ($params['animes'] as $anime) : ?>
                         <tr>
-                            <td><?= $anime->id ?></td>
-                            <td><a href="/anime/<?= $anime->id ?>"><?= $anime->title ?></a></td>
-                            <td><?= $anime->type ?></td>
-                            <td><?= $anime->episodes ?></td>
-                            <td><?= $anime->year ?></td>
-                            <td><?= $anime->studio ?></td>
-                            <td><?= $anime->created_at ?></td>
+                            <td><?= ($anime->id) ?></td>
+                            <td><a href="/anime/<?= $anime->id ?>"><?= htmlspecialchars($anime->title) ?></a></td>
+                            <td><?= htmlspecialchars($anime->type) ?></td>
+                            <td><?= htmlspecialchars($anime->episodes) ?></td>
+                            <td><?= htmlspecialchars($anime->year) ?></td>
+                            <td><?= htmlspecialchars($anime->studio) ?></td>
+                            <td><?= htmlspecialchars($anime->created_at) ?></td>
                             <td>
                                 <a href="/admin/anime/<?= $anime->id ?>/edit">Edit</a>
                                 <a href="/admin/anime/<?= $anime->id ?>/delete">Delete</a>
