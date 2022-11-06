@@ -21,7 +21,7 @@ for educational purpose only
 ## Installation
 
 ```bash
-git clone https://github.com/2a0b40/anime-list.git
+git clone https://github.com/lclhugo/anime-list
 ```
 
 get the anime-list.sql file and import it to your database
